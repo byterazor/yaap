@@ -31,6 +31,10 @@ YAAP is intented to be copied into your project directory. Different approaches 
 
 In all cases you have to make sure that argparse.c is compiled into an object file and is appended to your link stage.
 
+## Documentation
+
+The Doxygen documentation can be found at https://byterazor.github.io/yaap/ .
+
 ## Signed Commits
 All commits are signed with the GPG key for dmeyer@federationhq.de valid from 2017-07-30
 
