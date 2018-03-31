@@ -37,11 +37,15 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 *  - git like command support (git commit)
 *  - short and long flag support ( -t YAAP or --title=YAAP)
 *  - string argument support ( -t YAAP or -- title=YAAP)
+*  - simple flags (-v, -V, -h, --help)
 *
 * \section coming
-*  - simple flags (-v, -V, -h, --help)
 *  - integer arguments (-c 10)
 *  - hex arguments ( -c 0x5A)
+*
+* \section Repository
+*
+* https://github.com/byterazor/yaap
 *
 * \section Installation
 * YAAP is intented to be copied into your project directory. Different approaches are
