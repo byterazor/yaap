@@ -144,6 +144,7 @@ struct arg_parse_ctx * argparse_init();                                         
 void argparse_free(struct arg_parse_ctx *ctx);                                    ///< free the parsing context at program end
 int argparse_add_command(struct arg_parse_ctx *ctx, struct arg_parse_cmd *cmd);   ///< add a commandline command to the context
 int argparse_add_string(struct arg_parse_ctx *ctx, struct arg_str *str);          ///< add a string argument to the context
+int argparse_add_flag(struct arg_parse_ctx *ctx, struct arg_flag *flag);          ///< add a flag argument to the context
 int argparse_parse(struct arg_parse_ctx *ctx,int argc, char **argv);              ///< parse the given commandline in the context
 
 #endif
