@@ -150,6 +150,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a935fd3b75fad909de6da07c1ec3373b4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="argparse_8h.html#a935fd3b75fad909de6da07c1ec3373b4">argparse_add_string</a> (struct <a class="el" href="structarg__parse__ctx.html">arg_parse_ctx</a> *ctx, struct <a class="el" href="structarg__str.html">arg_str</a> *str)</td></tr>
 <tr class="memdesc:a935fd3b75fad909de6da07c1ec3373b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">add a string argument to the context  <a href="#a935fd3b75fad909de6da07c1ec3373b4">More...</a><br /></td></tr>
 <tr class="separator:a935fd3b75fad909de6da07c1ec3373b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ae4a6de4ba4f5c066ea6bde3f90c0f9"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="argparse_8h.html#a1ae4a6de4ba4f5c066ea6bde3f90c0f9">argparse_add_flag</a> (struct <a class="el" href="structarg__parse__ctx.html">arg_parse_ctx</a> *ctx, struct <a class="el" href="structarg__flag.html">arg_flag</a> *flag)</td></tr>
+<tr class="memdesc:a1ae4a6de4ba4f5c066ea6bde3f90c0f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">add a flag argument to the context  <a href="#a1ae4a6de4ba4f5c066ea6bde3f90c0f9">More...</a><br /></td></tr>
+<tr class="separator:a1ae4a6de4ba4f5c066ea6bde3f90c0f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af4eaa000d0aa2a56b8566ad66de6614c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="argparse_8h.html#af4eaa000d0aa2a56b8566ad66de6614c">argparse_parse</a> (struct <a class="el" href="structarg__parse__ctx.html">arg_parse_ctx</a> *ctx, int argc, char **argv)</td></tr>
 <tr class="memdesc:af4eaa000d0aa2a56b8566ad66de6614c"><td class="mdescLeft">&#160;</td><td class="mdescRight">parse the given commandline in the context  <a href="#af4eaa000d0aa2a56b8566ad66de6614c">More...</a><br /></td></tr>
 <tr class="separator:af4eaa000d0aa2a56b8566ad66de6614c"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -218,6 +221,46 @@ Functions</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">ctx</td><td>- the context the command should be added to </td></tr>
     <tr><td class="paramname">cmd</td><td>- the command to add to the context</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>0 = everything is fine, -1 error occured </dd></dl>
+
+</div>
+</div>
+<a id="a1ae4a6de4ba4f5c066ea6bde3f90c0f9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1ae4a6de4ba4f5c066ea6bde3f90c0f9">&#9670;&nbsp;</a></span>argparse_add_flag()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int argparse_add_flag </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="structarg__parse__ctx.html">arg_parse_ctx</a> *&#160;</td>
+          <td class="paramname"><em>ctx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">struct <a class="el" href="structarg__flag.html">arg_flag</a> *&#160;</td>
+          <td class="paramname"><em>flag</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>add a flag argument to the context </p>
+<p>add a flag argument to the context</p>
+<p>add an <a class="el" href="structarg__flag.html">arg_flag</a> to the context for later parsing</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ctx</td><td>- the context the command should be added to </td></tr>
+    <tr><td class="paramname">flag</td><td>- the <a class="el" href="structarg__flag.html">arg_flag</a> to add</td></tr>
   </table>
   </dd>
 </dl>

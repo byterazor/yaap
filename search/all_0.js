@@ -10,7 +10,7 @@ var searchData=
   ['argparse_2ec',['argparse.c',['../argparse_8c.html',1,'']]],
   ['argparse_2eh',['argparse.h',['../argparse_8h.html',1,'']]],
   ['argparse_5fadd_5fcommand',['argparse_add_command',['../argparse_8c.html#a683425cc9557fe588f4fd2a199366897',1,'argparse_add_command(struct arg_parse_ctx *ctx, struct arg_parse_cmd *cmd):&#160;argparse.c'],['../argparse_8h.html#a683425cc9557fe588f4fd2a199366897',1,'argparse_add_command(struct arg_parse_ctx *ctx, struct arg_parse_cmd *cmd):&#160;argparse.c']]],
-  ['argparse_5fadd_5fflag',['argparse_add_flag',['../argparse_8c.html#a1ae4a6de4ba4f5c066ea6bde3f90c0f9',1,'argparse.c']]],
+  ['argparse_5fadd_5fflag',['argparse_add_flag',['../argparse_8c.html#a1ae4a6de4ba4f5c066ea6bde3f90c0f9',1,'argparse_add_flag(struct arg_parse_ctx *ctx, struct arg_flag *flag):&#160;argparse.c'],['../argparse_8h.html#a1ae4a6de4ba4f5c066ea6bde3f90c0f9',1,'argparse_add_flag(struct arg_parse_ctx *ctx, struct arg_flag *flag):&#160;argparse.c']]],
   ['argparse_5fadd_5fstring',['argparse_add_string',['../argparse_8c.html#a935fd3b75fad909de6da07c1ec3373b4',1,'argparse_add_string(struct arg_parse_ctx *ctx, struct arg_str *str):&#160;argparse.c'],['../argparse_8h.html#a935fd3b75fad909de6da07c1ec3373b4',1,'argparse_add_string(struct arg_parse_ctx *ctx, struct arg_str *str):&#160;argparse.c']]],
   ['argparse_5ffree',['argparse_free',['../argparse_8c.html#a8fb4e73ff31b7ee656b37fd1283a9509',1,'argparse_free(struct arg_parse_ctx *ctx):&#160;argparse.c'],['../argparse_8h.html#a8fb4e73ff31b7ee656b37fd1283a9509',1,'argparse_free(struct arg_parse_ctx *ctx):&#160;argparse.c']]],
   ['argparse_5fhelp',['argparse_help',['../argparse_8c.html#a9dac17e87defe5ef58a8616046e2b93a',1,'argparse.c']]],
