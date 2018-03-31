@@ -87,6 +87,15 @@ Include dependency graph for argparse.c:</div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:a64bca1ebb06d12b882f40fcfa7b42817"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="argparse_8c.html#a64bca1ebb06d12b882f40fcfa7b42817">argparse_usage</a> (struct <a class="el" href="structarg__parse__ctx.html">arg_parse_ctx</a> *ctx, char *program)</td></tr>
+<tr class="memdesc:a64bca1ebb06d12b882f40fcfa7b42817"><td class="mdescLeft">&#160;</td><td class="mdescRight">forward declaration of function  <a href="#a64bca1ebb06d12b882f40fcfa7b42817">More...</a><br /></td></tr>
+<tr class="separator:a64bca1ebb06d12b882f40fcfa7b42817"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ae4a6de4ba4f5c066ea6bde3f90c0f9"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="argparse_8c.html#a1ae4a6de4ba4f5c066ea6bde3f90c0f9">argparse_add_flag</a> (struct <a class="el" href="structarg__parse__ctx.html">arg_parse_ctx</a> *ctx, struct <a class="el" href="structarg__flag.html">arg_flag</a> *flag)</td></tr>
+<tr class="memdesc:a1ae4a6de4ba4f5c066ea6bde3f90c0f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">forward declaration of function  <a href="#a1ae4a6de4ba4f5c066ea6bde3f90c0f9">More...</a><br /></td></tr>
+<tr class="separator:a1ae4a6de4ba4f5c066ea6bde3f90c0f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9dac17e87defe5ef58a8616046e2b93a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="argparse_8c.html#a9dac17e87defe5ef58a8616046e2b93a">argparse_help</a> (void *ctx, void *user)</td></tr>
+<tr class="memdesc:a9dac17e87defe5ef58a8616046e2b93a"><td class="mdescLeft">&#160;</td><td class="mdescRight">wrapper function for calling argparse_usage from the -h <a class="el" href="structarg__flag.html">arg_flag</a> command line argument  <a href="#a9dac17e87defe5ef58a8616046e2b93a">More...</a><br /></td></tr>
+<tr class="separator:a9dac17e87defe5ef58a8616046e2b93a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a87f8dad1db5204a53092f7aeeb53502a"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="structarg__parse__ctx.html">arg_parse_ctx</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="argparse_8c.html#a87f8dad1db5204a53092f7aeeb53502a">argparse_init</a> ()</td></tr>
 <tr class="memdesc:a87f8dad1db5204a53092f7aeeb53502a"><td class="mdescLeft">&#160;</td><td class="mdescRight">initialize the argparse context  <a href="#a87f8dad1db5204a53092f7aeeb53502a">More...</a><br /></td></tr>
 <tr class="separator:a87f8dad1db5204a53092f7aeeb53502a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -99,9 +108,6 @@ Functions</h2></td></tr>
 <tr class="memitem:a935fd3b75fad909de6da07c1ec3373b4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="argparse_8c.html#a935fd3b75fad909de6da07c1ec3373b4">argparse_add_string</a> (struct <a class="el" href="structarg__parse__ctx.html">arg_parse_ctx</a> *ctx, struct <a class="el" href="structarg__str.html">arg_str</a> *str)</td></tr>
 <tr class="memdesc:a935fd3b75fad909de6da07c1ec3373b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">add an <a class="el" href="structarg__str.html" title="structure representing a string command line argument ">arg_str</a> to the context for later parsing  <a href="#a935fd3b75fad909de6da07c1ec3373b4">More...</a><br /></td></tr>
 <tr class="separator:a935fd3b75fad909de6da07c1ec3373b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a64bca1ebb06d12b882f40fcfa7b42817"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="argparse_8c.html#a64bca1ebb06d12b882f40fcfa7b42817">argparse_usage</a> (struct <a class="el" href="structarg__parse__ctx.html">arg_parse_ctx</a> *ctx, char *program)</td></tr>
-<tr class="memdesc:a64bca1ebb06d12b882f40fcfa7b42817"><td class="mdescLeft">&#160;</td><td class="mdescRight">internal function to print usage information, not exported to user  <a href="#a64bca1ebb06d12b882f40fcfa7b42817">More...</a><br /></td></tr>
-<tr class="separator:a64bca1ebb06d12b882f40fcfa7b42817"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a195d1dd6a947e4d233ff9c039a964684"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="argparse_8c.html#a195d1dd6a947e4d233ff9c039a964684">argparse_unknown_command</a> (struct <a class="el" href="structarg__parse__ctx.html">arg_parse_ctx</a> *ctx, char *program, char *command)</td></tr>
 <tr class="memdesc:a195d1dd6a947e4d233ff9c039a964684"><td class="mdescLeft">&#160;</td><td class="mdescRight">internal function to print usage information, if an unknown command has been found  <a href="#a195d1dd6a947e4d233ff9c039a964684">More...</a><br /></td></tr>
 <tr class="separator:a195d1dd6a947e4d233ff9c039a964684"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -152,6 +158,45 @@ Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>0 = everything is fine, -1 error occured </dd></dl>
 <dl><dt><b>Examples: </b></dt><dd><a class="el" href="example1_8c-example.html#a3">example1.c</a>.</dd>
 </dl>
+</div>
+</div>
+<a id="a1ae4a6de4ba4f5c066ea6bde3f90c0f9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1ae4a6de4ba4f5c066ea6bde3f90c0f9">&#9670;&nbsp;</a></span>argparse_add_flag()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int argparse_add_flag </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="structarg__parse__ctx.html">arg_parse_ctx</a> *&#160;</td>
+          <td class="paramname"><em>ctx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">struct <a class="el" href="structarg__flag.html">arg_flag</a> *&#160;</td>
+          <td class="paramname"><em>flag</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>forward declaration of function </p>
+<p>add an <a class="el" href="structarg__flag.html">arg_flag</a> to the context for later parsing</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ctx</td><td>- the context the command should be added to </td></tr>
+    <tr><td class="paramname">flag</td><td>- the <a class="el" href="structarg__flag.html">arg_flag</a> to add</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>0 = everything is fine, -1 error occured </dd></dl>
+
 </div>
 </div>
 <a id="a935fd3b75fad909de6da07c1ec3373b4"></a>
@@ -220,6 +265,44 @@ Functions</h2></td></tr>
 </dl>
 <dl><dt><b>Examples: </b></dt><dd><a class="el" href="example1_8c-example.html#a5">example1.c</a>.</dd>
 </dl>
+</div>
+</div>
+<a id="a9dac17e87defe5ef58a8616046e2b93a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9dac17e87defe5ef58a8616046e2b93a">&#9670;&nbsp;</a></span>argparse_help()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int argparse_help </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>ctx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>user</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>wrapper function for calling argparse_usage from the -h <a class="el" href="structarg__flag.html">arg_flag</a> command line argument </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ctx</td><td>- the current yaap context </td></tr>
+    <tr><td class="paramname">user</td><td>- some user specific data in this case the command line arguments</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>0 - everything is fine </dd></dl>
+
 </div>
 </div>
 <a id="a87f8dad1db5204a53092f7aeeb53502a"></a>
@@ -364,7 +447,8 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>internal function to print usage information, not exported to user </p>
+<p>forward declaration of function </p>
+<p>internal function to print usage information, not exported to user</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">ctx</td><td>- the context for which to print the usage information </td></tr>
