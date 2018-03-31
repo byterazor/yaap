@@ -68,6 +68,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 #define to_argbase(ptr) ((struct arg_base *) ptr)   ///< convert a pointer to an arg_base structure pointer
 #define to_cmd(ptr) ((struct arg_parse_cmd *)ptr)   ///< convert a pointer to an arg_parse_cmd structure pointer
 #define to_str(ptr) ((struct arg_str *)ptr)         ///< convert a pointer to an arg_str structure pointer
+#define to_flag(ptr) ((struct arg_flag *) ptr)      ///< convert a pointer to an arg_flag structure pointer
 
 /**
 * @brief supported argument types
@@ -106,11 +107,22 @@ struct arg_parse_cmd
 */
 struct arg_str {
   struct arg_base base;           ///< base of the command line argument
-  const char short_flag;          ///< one char flag identifying the argument, ignored if NULL
+  char short_flag;          ///< one char flag identifying the argument, ignored if NULL
   const char *long_flag;          ///< multi char flag identifying the argument, ignore if NULL
   char *value;                    ///< memory already allocated for the string parameter
   int maxchars;                   ///< the maximum number of chars for the string parameters
   const char *description;        ///< short description of the argument
+};
+
+/**
+*  qbrief structure repsenting a simple flag command line argument
+*/
+struct arg_flag {
+  struct arg_base base;           ///< base of the command line argument
+  char short_flag;          ///< one char flag identifying the argument, ignored if NULL
+  const char *long_flag;          ///< multi char flag identifying the argument, ignore if NULL
+  const char *description;        ///< short description of the argument
+  int (*cb)(void *ctx, void *userdata);  ///< callback called if argument is found
 };
 
 

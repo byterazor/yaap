@@ -29,6 +29,24 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 #include <string.h>
 #include "argparse.h"
 
+
+void argparse_usage(struct arg_parse_ctx *ctx, char *program); ///< forward declaration of function
+int argparse_add_flag(struct arg_parse_ctx *ctx, struct arg_flag *flag); ///< forward declaration of function
+
+/**
+* @brief wrapper function for calling argparse_usage from the -h arg_flag command line argument
+*
+* @param ctx - the current yaap context
+* @param user - some user specific data in this case the command line arguments
+*
+* @return 0 - everything is fine
+*/
+int argparse_help(void *ctx, void *user)
+{
+  argparse_usage(ctx, ((char **) user)[0]);
+  return 0;
+}
+
 /**
 * @brief initialize the argparse context
 *
@@ -54,6 +72,15 @@ struct arg_parse_ctx * argparse_init()
     return NULL;
   }
 
+  // flag argument for -h and --help
+  struct arg_flag *flag = (struct arg_flag *) calloc(sizeof(struct arg_flag),1);
+  flag->base.type = ARG_FLAG;
+  flag->short_flag='h';
+  flag->long_flag="help";
+  flag->description="print help message";
+  flag->cb=&argparse_help;
+  argparse_add_flag(ctx, flag);
+
   return ctx;
 }
 
@@ -66,6 +93,19 @@ struct arg_parse_ctx * argparse_init()
 */
 void argparse_free(struct arg_parse_ctx *ctx)
 {
+  int i;
+
+  //search for -h flag argument and free it
+  for(i=0; i< ctx->nr_arguments;i++)
+  {
+    if (to_argbase(ctx->arguments[i])->type == ARG_FLAG)
+    {
+      if (to_flag(ctx->arguments[i])->short_flag=='h')
+      {
+        free(ctx->arguments[i]);
+      }
+    }
+  }
   // free the arg_parse_cmd array
   free(ctx->arguments);
 
@@ -134,6 +174,36 @@ int argparse_add_string(struct arg_parse_ctx *ctx, struct arg_str *str)
   return 0;
 }
 
+/**
+* @brief add an arg_flag to the context for later parsing
+*
+* @param ctx - the context the command should be added to
+* @param flag - the arg_flag to add
+*
+* @return 0 = everything is fine, -1 error occured
+*/
+int argparse_add_flag(struct arg_parse_ctx *ctx, struct arg_flag *flag)
+{
+  if (ctx == NULL || flag == NULL)
+  {
+    return -1;
+  }
+
+  flag->base.type=ARG_FLAG;
+
+
+  // check if the array size has to be increased
+  if (ctx->nr_arguments % ARGPARSE_INITIAL_COMMAND_NR == 0)
+  {
+    ctx->arguments= (void **) realloc(ctx->arguments, sizeof(void *)*(ctx->nr_arguments+ARGPARSE_INITIAL_COMMAND_NR));
+  }
+
+  // append the command to the array
+  ctx->arguments[ctx->nr_arguments]=flag;
+  ctx->nr_arguments++;
+
+  return 0;
+}
 
 /**
 * @brief internal function to print usage information, not exported to user
@@ -172,6 +242,13 @@ void argparse_usage(struct arg_parse_ctx *ctx, char *program)
               printf("\t-%c <string>|--%s=<string>\t\t%s\n", to_str(ctx->arguments[i])->short_flag,
                                                                to_str(ctx->arguments[i])->long_flag,
                                                                to_str(ctx->arguments[i])->description);
+
+              break;
+      case ARG_FLAG:
+            printf("\t-%c | --%s\t\t%s\n", to_flag(ctx->arguments[i])->short_flag,
+                                            to_flag(ctx->arguments[i])->long_flag,
+                                            to_flag(ctx->arguments[i])->description);
+            break;
       default:
         break;
     };
@@ -268,6 +345,36 @@ int argparse_parse(struct arg_parse_ctx *ctx, int argc, char **argv)
                 return -1;
               }
               to_argbase(ctx->arguments[r])->set=1;
+            }
+          }
+        }
+        // check if the argument is a flag argument
+        else if (argv[i][0]=='-' && to_argbase(ctx->arguments[r])->type == ARG_FLAG)
+        {
+          // check for long argument format or short
+          if(argv[i][1]=='-')
+          {
+            if (strcmp(&argv[i][2],to_flag(ctx->arguments[r])->long_flag)==0)
+            {
+              to_flag(ctx->arguments[r])->base.set=1;
+              found=1;
+              if (to_flag(ctx->arguments[r])->cb != NULL)
+              {
+                return to_flag(ctx->arguments[r])->cb(ctx, argv);
+              }
+            }
+          }
+          else
+          {
+            if(argv[i][1] == to_flag(ctx->arguments[r])->short_flag)
+            {
+              found=1;
+              to_flag(ctx->arguments[r])->base.set=1;
+              if (to_flag(ctx->arguments[r])->cb != NULL)
+              {
+                return to_flag(ctx->arguments[r])->cb(ctx, argv);
+              }
+
             }
           }
         }
