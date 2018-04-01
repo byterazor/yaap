@@ -38,9 +38,10 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 *  - short and long flag support ( -t YAAP or --title=YAAP)
 *  - string argument support ( -t YAAP or -- title=YAAP)
 *  - simple flags (-v, -V, -h, --help)
+*  - integer arguments (-c 10)
 *
 * \section coming
-*  - integer arguments (-c 10)
+*
 *  - hex arguments ( -c 0x5A)
 *
 * \section Repository
