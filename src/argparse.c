@@ -206,6 +206,37 @@ int argparse_add_flag(struct arg_parse_ctx *ctx, struct arg_flag *flag)
 }
 
 /**
+* @brief add an arg_int to the context for later parsing
+*
+* @param ctx - the context the command should be added to
+* @param integer - the arg_int to add
+*
+* @return 0 = everything is fine, -1 error occured
+*/
+int argparse_add_int(struct arg_parse_ctx *ctx, struct arg_int *integer)
+{
+  if (ctx == NULL || integer == NULL)
+  {
+    return -1;
+  }
+
+  integer->base.type=ARG_INT;
+
+
+  // check if the array size has to be increased
+  if (ctx->nr_arguments % ARGPARSE_INITIAL_COMMAND_NR == 0)
+  {
+    ctx->arguments= (void **) realloc(ctx->arguments, sizeof(void *)*(ctx->nr_arguments+ARGPARSE_INITIAL_COMMAND_NR));
+  }
+
+  // append the command to the array
+  ctx->arguments[ctx->nr_arguments]=integer;
+  ctx->nr_arguments++;
+
+  return 0;
+}
+
+/**
 * @brief internal function to print usage information, not exported to user
 *
 * @param ctx - the context for which to print the usage information
@@ -248,6 +279,11 @@ void argparse_usage(struct arg_parse_ctx *ctx, char *program)
             printf("\t-%c | --%s\t\t%s\n", to_flag(ctx->arguments[i])->short_flag,
                                             to_flag(ctx->arguments[i])->long_flag,
                                             to_flag(ctx->arguments[i])->description);
+            break;
+      case ARG_INT:
+            printf("\t-%c <integer> | --%s=<integer>\t\t%s\n", to_flag(ctx->arguments[i])->short_flag,
+                                           to_flag(ctx->arguments[i])->long_flag,
+                                           to_flag(ctx->arguments[i])->description);
             break;
       default:
         break;
@@ -375,6 +411,37 @@ int argparse_parse(struct arg_parse_ctx *ctx, int argc, char **argv)
                 return to_flag(ctx->arguments[r])->cb(ctx, argv);
               }
 
+            }
+          }
+        }
+        else if (argv[i][0]=='-' && to_argbase(ctx->arguments[r])->type == ARG_INT)
+        {
+          // check for long argument format or short
+          if(argv[i][1]=='-')
+          {
+            char *tok=strtok(argv[i],"=");
+            if (strcmp(tok+2,to_int(ctx->arguments[r])->long_flag)==0)
+            {
+              to_int(ctx->arguments[r])->base.set=1;
+              tok=strtok(NULL,"=");
+              found=1;
+              if (to_int(ctx->arguments[r])->value != NULL)
+              {
+                *(to_int(ctx->arguments[r])->value)=(int) strtol(tok,NULL,10);
+              }
+            }
+          }
+          else
+          {
+            if(argv[i][1] == to_int(ctx->arguments[r])->short_flag)
+            {
+              found=1;
+              to_int(ctx->arguments[r])->base.set=1;
+              if (to_int(ctx->arguments[r])->value != NULL)
+              {
+                *(to_int(ctx->arguments[r])->value)=(int) strtol(argv[i+1],NULL,10);
+              }
+              i++;
             }
           }
         }

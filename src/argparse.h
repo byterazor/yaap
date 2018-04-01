@@ -73,6 +73,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 #define to_cmd(ptr) ((struct arg_parse_cmd *)ptr)   ///< convert a pointer to an arg_parse_cmd structure pointer
 #define to_str(ptr) ((struct arg_str *)ptr)         ///< convert a pointer to an arg_str structure pointer
 #define to_flag(ptr) ((struct arg_flag *) ptr)      ///< convert a pointer to an arg_flag structure pointer
+#define to_int(ptr) ((struct arg_int *) ptr)        ///< convert a pointer to an arg_int structure pointer
 
 /**
 * @brief supported argument types
@@ -119,7 +120,7 @@ struct arg_str {
 };
 
 /**
-*  qbrief structure repsenting a simple flag command line argument
+*  @brief structure representing a simple flag command line argument
 */
 struct arg_flag {
   struct arg_base base;           ///< base of the command line argument
@@ -128,6 +129,18 @@ struct arg_flag {
   const char *description;        ///< short description of the argument
   int (*cb)(void *ctx, void *userdata);  ///< callback called if argument is found
 };
+
+/**
+*  @brief structure representing a simple int command line argument
+*/
+struct arg_int {
+  struct arg_base base;           ///< base of the command line argument
+  char short_flag;                ///< one char flag identifying the argument, ignored if NULL
+  const char *long_flag;          ///< multi char flag identifying the argument, ignore if NULL
+  const char *description;        ///< short description of the argument
+  int *value;                     ///< the value of the option
+};
+
 
 
 /**
@@ -145,6 +158,7 @@ void argparse_free(struct arg_parse_ctx *ctx);                                  
 int argparse_add_command(struct arg_parse_ctx *ctx, struct arg_parse_cmd *cmd);   ///< add a commandline command to the context
 int argparse_add_string(struct arg_parse_ctx *ctx, struct arg_str *str);          ///< add a string argument to the context
 int argparse_add_flag(struct arg_parse_ctx *ctx, struct arg_flag *flag);          ///< add a flag argument to the context
+int argparse_add_int(struct arg_parse_ctx *ctx, struct arg_int *integer);          ///< add a integer argument to the context
 int argparse_parse(struct arg_parse_ctx *ctx,int argc, char **argv);              ///< parse the given commandline in the context
 
 #endif
