@@ -15,9 +15,10 @@ Copyright 2018 by Dominik Meyer Licensed under GPLv3
 * short and long flag support ( -t YAAP or –title=YAAP)
 * string argument support ( -t YAAP or – title=YAAP)
 * simple flags (-v, -V, -h, –help)
+* integer arguments (-c 10)
 
 ## Coming
-* integer arguments (-c 10)
+
 * hex arguments ( -c 0x5A)
 
 ## Installation
