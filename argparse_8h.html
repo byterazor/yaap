@@ -98,6 +98,10 @@ Data Structures</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">structure representing a string command line argument  <a href="structarg__str.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structarg__flag.html">arg_flag</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">structure representing a simple flag command line argument  <a href="structarg__flag.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structarg__int.html">arg_int</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">structure representing a simple int command line argument  <a href="structarg__int.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structarg__parse__ctx.html">arg_parse_ctx</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">structure for the argparse context, holding argparse specific data structures  <a href="structarg__parse__ctx.html#details">More...</a><br /></td></tr>
@@ -123,8 +127,12 @@ Macros</h2></td></tr>
 <tr class="separator:a532fb46f0778a81fc7300beb737a2efd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab234ee7bb33c85eace7df3276c57be60"><td class="memItemLeft" align="right" valign="top"><a id="ab234ee7bb33c85eace7df3276c57be60"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="argparse_8h.html#ab234ee7bb33c85eace7df3276c57be60">to_flag</a>(ptr)&#160;&#160;&#160;((struct <a class="el" href="structarg__flag.html">arg_flag</a> *) ptr)</td></tr>
-<tr class="memdesc:ab234ee7bb33c85eace7df3276c57be60"><td class="mdescLeft">&#160;</td><td class="mdescRight">convert a pointer to an <a class="el" href="structarg__flag.html">arg_flag</a> structure pointer <br /></td></tr>
+<tr class="memdesc:ab234ee7bb33c85eace7df3276c57be60"><td class="mdescLeft">&#160;</td><td class="mdescRight">convert a pointer to an <a class="el" href="structarg__flag.html" title="structure representing a simple flag command line argument ">arg_flag</a> structure pointer <br /></td></tr>
 <tr class="separator:ab234ee7bb33c85eace7df3276c57be60"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a32849c128d757e37838e29acf89e3749"><td class="memItemLeft" align="right" valign="top"><a id="a32849c128d757e37838e29acf89e3749"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="argparse_8h.html#a32849c128d757e37838e29acf89e3749">to_int</a>(ptr)&#160;&#160;&#160;((struct <a class="el" href="structarg__int.html">arg_int</a> *) ptr)</td></tr>
+<tr class="memdesc:a32849c128d757e37838e29acf89e3749"><td class="mdescLeft">&#160;</td><td class="mdescRight">convert a pointer to an <a class="el" href="structarg__int.html" title="structure representing a simple int command line argument ">arg_int</a> structure pointer <br /></td></tr>
+<tr class="separator:a32849c128d757e37838e29acf89e3749"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>
@@ -153,6 +161,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a1ae4a6de4ba4f5c066ea6bde3f90c0f9"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="argparse_8h.html#a1ae4a6de4ba4f5c066ea6bde3f90c0f9">argparse_add_flag</a> (struct <a class="el" href="structarg__parse__ctx.html">arg_parse_ctx</a> *ctx, struct <a class="el" href="structarg__flag.html">arg_flag</a> *flag)</td></tr>
 <tr class="memdesc:a1ae4a6de4ba4f5c066ea6bde3f90c0f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">add a flag argument to the context  <a href="#a1ae4a6de4ba4f5c066ea6bde3f90c0f9">More...</a><br /></td></tr>
 <tr class="separator:a1ae4a6de4ba4f5c066ea6bde3f90c0f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3990f1885d2db94f99f7916ecdc1ea95"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="argparse_8h.html#a3990f1885d2db94f99f7916ecdc1ea95">argparse_add_int</a> (struct <a class="el" href="structarg__parse__ctx.html">arg_parse_ctx</a> *ctx, struct <a class="el" href="structarg__int.html">arg_int</a> *integer)</td></tr>
+<tr class="memdesc:a3990f1885d2db94f99f7916ecdc1ea95"><td class="mdescLeft">&#160;</td><td class="mdescRight">add a integer argument to the context  <a href="#a3990f1885d2db94f99f7916ecdc1ea95">More...</a><br /></td></tr>
+<tr class="separator:a3990f1885d2db94f99f7916ecdc1ea95"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af4eaa000d0aa2a56b8566ad66de6614c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="argparse_8h.html#af4eaa000d0aa2a56b8566ad66de6614c">argparse_parse</a> (struct <a class="el" href="structarg__parse__ctx.html">arg_parse_ctx</a> *ctx, int argc, char **argv)</td></tr>
 <tr class="memdesc:af4eaa000d0aa2a56b8566ad66de6614c"><td class="mdescLeft">&#160;</td><td class="mdescRight">parse the given commandline in the context  <a href="#af4eaa000d0aa2a56b8566ad66de6614c">More...</a><br /></td></tr>
 <tr class="separator:af4eaa000d0aa2a56b8566ad66de6614c"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -256,11 +267,50 @@ Functions</h2></td></tr>
 
 <p>add a flag argument to the context </p>
 <p>add a flag argument to the context</p>
-<p>add an <a class="el" href="structarg__flag.html">arg_flag</a> to the context for later parsing</p>
+<p>add an <a class="el" href="structarg__flag.html" title="structure representing a simple flag command line argument ">arg_flag</a> to the context for later parsing</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">ctx</td><td>- the context the command should be added to </td></tr>
-    <tr><td class="paramname">flag</td><td>- the <a class="el" href="structarg__flag.html">arg_flag</a> to add</td></tr>
+    <tr><td class="paramname">flag</td><td>- the <a class="el" href="structarg__flag.html" title="structure representing a simple flag command line argument ">arg_flag</a> to add</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>0 = everything is fine, -1 error occured </dd></dl>
+
+</div>
+</div>
+<a id="a3990f1885d2db94f99f7916ecdc1ea95"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3990f1885d2db94f99f7916ecdc1ea95">&#9670;&nbsp;</a></span>argparse_add_int()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int argparse_add_int </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="structarg__parse__ctx.html">arg_parse_ctx</a> *&#160;</td>
+          <td class="paramname"><em>ctx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">struct <a class="el" href="structarg__int.html">arg_int</a> *&#160;</td>
+          <td class="paramname"><em>integer</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>add a integer argument to the context </p>
+<p>add a integer argument to the context</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ctx</td><td>- the context the command should be added to </td></tr>
+    <tr><td class="paramname">integer</td><td>- the <a class="el" href="structarg__int.html" title="structure representing a simple int command line argument ">arg_int</a> to add</td></tr>
   </table>
   </dd>
 </dl>
