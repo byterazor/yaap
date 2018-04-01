@@ -57,8 +57,24 @@ int main (int argc, char **argv)
   /// add the argument command to context
   argparse_add_command(argparse_ctx, &test_cmd);
 
+  int count;
+  struct arg_int test_int = {
+    {ARG_INT,0,0},
+    'c',
+    "count",
+    "just a counting value",
+    &count
+    };
+  /// add the argument int to context
+  argparse_add_int(argparse_ctx, &test_int);
+
   /// parse the commandline
   int ret=argparse_parse(argparse_ctx, argc, argv);
+
+  if (ret >= 0)
+  {
+    printf("Counter: %d\n", count);
+  }
 
   /// free context
   argparse_free(argparse_ctx);
