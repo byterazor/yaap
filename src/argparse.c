@@ -44,7 +44,7 @@ int argparse_add_flag(struct arg_parse_ctx *ctx, struct arg_flag *flag); ///< fo
 int argparse_help(void *ctx, void *user)
 {
   argparse_usage(ctx, ((char **) user)[0]);
-  return 0;
+  return -100;
 }
 
 /**
